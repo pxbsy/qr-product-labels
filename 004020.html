@@ -11,51 +11,41 @@
     background: #f4f5f7;
     color: #1f2329;
     min-height: 100vh;
-    padding: 0 0 28px;
+    padding: 14px 0 36px;
     display: flex;
     flex-direction: column;
     align-items: center;
     -webkit-font-smoothing: antialiased;
   }
-  .topbar {
-    width: 100%; max-width: 440px;
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 14px 16px 10px;
-  }
-  .topbar .left {
-    display: flex; align-items: center; gap: 10px;
-    font-size: 13px; font-weight: 600; color: #2f6bff; letter-spacing: .3px;
-  }
-  .topbar .left::before {
-    content: '';
-    display: inline-block; width: 6px; height: 6px;
-    background: #2f6bff; border-radius: 50%;
-  }
-  .code { font-family: "SF Mono", Consolas, monospace; font-size: 12px; color: #9aa0a6; letter-spacing: .5px; }
-  .head-label {
-    width: 100%; max-width: 440px;
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 0 14px 8px;
-    border-bottom: 1px solid #ecedf0; margin-bottom: 12px;
-  }
-  .head-label .title { font-size: 18px; font-weight: 700; color: #2f6bff; letter-spacing: 1px; }
-  .head-label .sub { font-size: 11px; color: #9aa0a6; }
-  .title { font-size: 21px; font-weight: 600; line-height: 1.35; margin: 2px 2px 12px; color: #1f2329; }
   .wrap { width: 100%; max-width: 440px; padding: 0 14px; }
   .pic {
     background: #fff; border-radius: 16px; padding: 14px;
-    margin-bottom: 12px; text-align: center;
+    margin-bottom: 14px; text-align: center;
     box-shadow: 0 1px 3px rgba(0,0,0,.05), 0 8px 24px rgba(0,0,0,.04);
   }
   .pic img {
-    width: auto; max-width: 100%; max-height: 460px; height: auto;
+    width: 100%; max-height: 520px; height: auto;
     border-radius: 10px; display: block; margin: 0 auto; object-fit: contain;
   }
-  .pic .no-img { color: #c7c7cc; padding: 60px 0; font-size: 14px; }
-  .info {
-    background: #fff; border-radius: 16px; padding: 4px 18px;
-    box-shadow: 0 1px 3px rgba(0,0,0,.05), 0 8px 24px rgba(0,0,0,.04);
+  .pic .no-img { color: #c7c7cc; padding: 80px 0; font-size: 14px; }
+  .head {
+    display: flex; align-items: baseline; justify-content: space-between;
+    gap: 12px; padding: 2px 4px 0; margin-bottom: 10px;
   }
+  .head .title {
+    font-size: 22px; font-weight: 700; color: #1f2329; line-height: 1.3;
+    flex: 1; letter-spacing: .5px;
+  }
+  .head .sub {
+    font-size: 13px; color: #9aa0a6; flex-shrink: 0; white-space: nowrap;
+  }
+  .divider { height: 1px; background: #ecedf0; margin: 0 0 12px; }
+  .code-block {
+    font-size: 17px; color: #1f2329;
+    padding: 0 4px 14px;
+    font-family: "SF Mono", Consolas, monospace; letter-spacing: .5px;
+  }
+  .info { padding: 0 4px; }
   .row {
     display: flex; align-items: baseline; padding: 14px 0;
     border-bottom: 1px solid #f0f0f2; font-size: 15px; line-height: 1.55;
@@ -65,23 +55,19 @@
   .val { color: #1f2329; word-break: break-all; flex: 1; }
   .val.empty { color: #c7c7cc; }
   .val.hl { color: #2f6bff; font-weight: 600; }
-  .foot { text-align: center; color: #c2c6cc; font-size: 11px; padding: 18px 0 0; }
 </style>
 </head>
 <body>
-  <div class="topbar">
-    <div class="left">产品标签</div>
-    <div class="code">004020</div>
-  </div>
-  <div class="head-label">
-    <span class="title">产品标签</span>
-    <span class="sub">SCAN TO VIEW</span>
-  </div>
   <div class="wrap">
-    <div class="title">热缩管4mm</div>
     <div class="pic"><img src="data:image/png;base64,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" alt="热缩管4mm"></div>
-    <div class="info"><div class="row"><div class="lbl">英文名</div><div class="val">jewelry tools</div></div><div class="row"><div class="lbl">货位</div><div class="val empty">—</div></div><div class="row"><div class="lbl">规格</div><div class="val empty">—</div></div><div class="row"><div class="lbl">备注</div><div class="val empty">—</div></div><div class="row"><div class="lbl">重量</div><div class="val">0</div></div></div>
-    <div class="foot">由 批量二维码生成工具 生成</div>
+    <div class="head">
+      <div class="title">热缩管4mm</div>
+      <div class="sub">jewelry tools</div>
+    </div>
+    <div class="divider"></div>
+    <div class="code-block">004020</div>
+    <div class="divider"></div>
+    <div class="info"><div class="row"><div class="lbl">货位</div><div class="val empty">—</div></div><div class="row"><div class="lbl">规格</div><div class="val empty">—</div></div><div class="row"><div class="lbl">备注</div><div class="val empty">—</div></div><div class="row"><div class="lbl">重量</div><div class="val">0</div></div></div>
   </div>
 </body>
 </html>
